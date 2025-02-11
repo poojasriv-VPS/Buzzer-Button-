@@ -1,0 +1,75 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f5;
+}
+
+.container {
+    text-align: center;
+}
+
+.buzzer-circle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.buzzer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.buzzer-button {
+    padding: 15px 25px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#buzzer1 .buzzer-button { background-color: #ff5f5f; color: #fff; }
+#buzzer2 .buzzer-button { background-color: #4CAF50; color: #fff; }
+#buzzer3 .buzzer-button { background-color: #3B99FF; color: #fff; }
+#buzzer4 .buzzer-button { background-color: #FFC107; color: #fff; }
+
+.buzzer-button:active {
+    transform: scale(1.1);
+}
+
+.click-counter {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#reset-order-button, #reset-counters-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#reset-order-button:hover, #reset-counters-button:hover {
+    background-color: #555;
+}
+
+.order-display {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
