@@ -1,0 +1,67 @@
+// script.js
+
+const buzzerButtons = document.querySelectorAll('.buzzer-button');
+const resetOrderButton = document.getElementById('reset-order-button');
+const resetCountersButton = document.getElementById('reset-counters-button');
+const orderDisplay = document.getElementById('order-display');
+const counters = {
+    1: document.getElementById('counter1'),
+    2: document.getElementById('counter2'),
+    3: document.getElementById('counter3'),
+    4: document.getElementById('counter4')
+};
+const sounds = {
+    1: document.getElementById('buzzer-sound-1'),
+    2: document.getElementById('buzzer-sound-2'),
+    3: document.getElementById('buzzer-sound-3'),
+    4: document.getElementById('buzzer-sound-4')
+};
+
+// Track click counts and order of presses
+let clickCounts = { 1: 0, 2: 0, 3: 0, 4: 0 };
+let pressOrder = [];
+
+// Handle button clicks
+buzzerButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const id = button.getAttribute('data-id');
+        
+        // Increment the click count and update display
+        clickCounts[id]++;
+        counters[id].textContent = `Clicks: ${clickCounts[id]}`;
+        
+        // Add to press order if not already present
+        if (!pressOrder.includes(id)) {
+            pressOrder.push(id);
+        }
+
+        // Update the display order
+        updateOrderDisplay();
+        
+        // Play the buzzer sound for the respective button
+        sounds[id].currentTime = 0; // Reset sound to start
+        sounds[id].play();
+    });
+});
+
+// Update the display with press order
+function updateOrderDisplay() {
+    const orderText = pressOrder.map((id, index) => `Team ${id}: ${index + 1}`).join(', ');
+    orderDisplay.textContent = `Order: ${orderText}`;
+}
+
+// Reset the press order
+resetOrderButton.addEventListener('click', () => {
+    pressOrder = [];
+    orderDisplay.textContent = "Press order will appear here.";
+});
+
+// Reset all counters
+resetCountersButton.addEventListener('click', () => {
+    clickCounts = { 1: 0, 2: 0, 3: 0, 4: 0 };
+    Object.keys(counters).forEach(id => {
+        counters[id].textContent = "Clicks: 0";
+    });
+    pressOrder = [];
+    orderDisplay.textContent = "Press order will appear here.";
+});
