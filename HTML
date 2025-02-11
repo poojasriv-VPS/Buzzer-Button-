@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Buzzer System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Buzzer System</h1>
+        <p>Press a buzzer for each team! The order will be displayed below.</p>
+        
+        <!-- Buzzer Buttons arranged in a circular layout -->
+        <div class="buzzer-circle">
+            <div class="buzzer" id="buzzer1">
+                <button class="buzzer-button" data-id="1">Team 1</button>
+                <div class="click-counter" id="counter1">Clicks: 0</div>
+            </div>
+            <div class="buzzer" id="buzzer2">
+                <button class="buzzer-button" data-id="2">Team 2</button>
+                <div class="click-counter" id="counter2">Clicks: 0</div>
+            </div>
+            <div class="buzzer" id="buzzer3">
+                <button class="buzzer-button" data-id="3">Team 3</button>
+                <div class="click-counter" id="counter3">Clicks: 0</div>
+            </div>
+            <div class="buzzer" id="buzzer4">
+                <button class="buzzer-button" data-id="4">Team 4</button>
+                <div class="click-counter" id="counter4">Clicks: 0</div>
+            </div>
+        </div>
+
+        <!-- Order Display -->
+        <div class="order-display" id="order-display">
+            Press order will appear here.
+        </div>
+
+        <!-- Reset Buttons -->
+        <button id="reset-order-button">Reset Order</button>
+        <button id="reset-counters-button">Reset All Counters</button>
+    </div>
+
+    <!-- Audio elements for buzzer sounds -->
+    <audio id="buzzer-sound-1" src="buzzer-sound1.mp3"></audio>
+    <audio id="buzzer-sound-2" src="buzzer-sound2.mp3"></audio>
+    <audio id="buzzer-sound-3" src="buzzer-sound3.mp3"></audio>
+    <audio id="buzzer-sound-4" src="buzzer-sound4.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
